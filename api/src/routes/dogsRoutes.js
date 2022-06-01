@@ -15,42 +15,59 @@ const router = Router();
 
 //traer la informacion desde la api
 const getApiInfo = async () => {
-    const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
-    const apiInfo = await apiUrl.data.map(el =>{
+  try {
+        const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+        const apiInfo = await apiUrl.data.map((e) => {
+     
         return {
-            id: el.id,
-            name: el.name,
-            heigh: el.height,
-            weight: el.weight,
-            life_span: el.life_span,
-            image: el.image.url,
-            temperament: el.temperament,
+        
+         name: e.name,
+        id: e.id,
+        height_max: e.height.metric.split(" - ")[1] && e.height.metric.split(" - ")[1],
+        height_min: e.height.metric.split(" - ")[0] && e.height.metric.split(" - ")[0],
+        weight_max: e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
+        weight_min: e.weight.metric.split(" - ")[0] !== "NaN" ? e.weight.metric.split(" - ")[0] : 6,
+        life_time_max: e.life_span.split(" - ")[1] && e.life_span.split(" - ")[1].split(" ")[0],
+        life_time_min: e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
+        temperament: e.temperament ? e.temperament : "Perrito sin temperamentos!",
+        image: e.image.url,
+      
         };
-    });
-    return apiInfo;
+      });
+      return apiInfo;
+  } catch (error) {
+    console.log("Hubo un error en el getApiInfo", error)
+  }
 };
 
 //traer la informacion desde la db
 const getDBinfo = async () => {
+  try {
     return await Dog.findAll({
-        include: {
-            model: Temperament,
-            //comprobacion
-            attributes: ['name'],
-            through: {
-                attributes: [],
-            },
-        }
-    })
-}
+      include: {
+        model: Temperament,
+        attributes: ["name"], //traigo el nombre de los temperamentos
+        through: {
+          attributes: [], //tomo solo lo que queda en el arreglo atributes
+        },
+      },
+    });
+  } catch (error) {
+    console.log("Hubo un error en getDBInfo", error)
+  }
+};
 
 //concateno ambas fuentes de informacion
 const getAllDogs = async () => {
+ try{
     const apiInfo = await getApiInfo();
     const dbInfo = await getDBinfo();
     const infoTotal = apiInfo.concat(dbInfo);
     return infoTotal;
-}
+  } catch (error) {
+    console.log("Hubo un error en infoTotal", error)
+  }
+};
 
 // - [X] __GET /dogs__:
 // - Obtener un listado de las razas de perro
@@ -101,7 +118,8 @@ router.post('/dog', async (req, res) => {
     height_min,
     weight_max,
     weight_min,
-    life_span,
+    life_time_min,
+    life_time_max,
     image,
     temperaments,
   } = req.body;
@@ -112,7 +130,8 @@ router.post('/dog', async (req, res) => {
       height_min,
       weight_max,
       weight_min,
-      life_span,
+      life_time_max,
+      life_time_min,
       image
     });
     for (let i = 0; i < temperaments.length; i++) {
