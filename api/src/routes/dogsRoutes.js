@@ -23,8 +23,7 @@ const getApiInfo = async () => {
             heigh: el.height,
             weight: el.weight,
             life_span: el.life_span,
-            image: el.image,
-            userCreate: true,
+            image: el.image.url,
             temperament: el.temperament,
         };
     });
@@ -62,7 +61,7 @@ const getAllDogs = async () => {
 
 router.get('/dogs', async (req, res) => {
     const name = req.query.name;
-    let dogsTotal = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+    let dogsTotal = await getAllDogs();
     if (name) {
         let dogName = await dogsTotal.filter(el =>
             el.name.toLowerCase().includes(name.toLowerCase()));
@@ -97,34 +96,38 @@ router.get('/dogs/:id', async (req, res) => {
 
 router.post('/dog', async (req, res) => {
     let {
-        name = "tu perrito",
-        weight,
-        height,
-        temperament,
-        life_span,
-        image,
-        userCreate
-    } = req.body
-
-    try { let dogCreated = await Dog.create({
-        name,
-        weight,
-        height,
-        life_span,
-        image,
-        userCreate,
-    })
-
-    let temperamentDb = await Temperament.findAll({
-        where: {name: temperament}
-    })
-    dogCreated.addTemperament(temperamentDb)
-    res.send("Perrito creado!")
-    } catch {
-    res.status(404).send(`Falta información para crear a ${name}!`);
-}
+    name,
+    height_max,
+    height_min,
+    weight_max,
+    weight_min,
+    life_span,
+    image,
+    temperaments,
+  } = req.body;
+  try {
+    let newDog = await Dog.create({
+      name,
+      height_max,
+      height_min,
+      weight_max,
+      weight_min,
+      life_span,
+      image
+    });
+    for (let i = 0; i < temperaments.length; i++) {
+      let temperamentDb = await Temperament.findOne({
+        where: { name: temperaments[i] },
+      });
+      newDog.addTemperament(temperamentDb);
+    }
+    res.send("Perrito creado!");
+  } catch (err) {
+    
+    res.status(404).send(`Falta informacion para crear a tu perrito!`);
+    console.log(err);
+  }
 })
-
 
 
 module.exports = router;

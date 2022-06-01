@@ -1,0 +1,13 @@
+.conteiner {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background-image: url("https://img.freepik.com/foto-gratis/conjunto-comida-perros-cuello_23-2147828985.jpg?w=1060&t=st=1653940705~exp=1653941305~hmac=9d1791b47bd2b3c0cd23223ef30dd8322f125575398b1cb641d9a75984f5f6b9");
+    background-size: cover;
+    overflow: auto;
+    padding: 30px;
+    display: grid;
+    align-items: center;
+    align-self: center;
+}
+
