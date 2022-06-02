@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Card from "./card";
 import s from "../styles/Home.module.css" 
 import Paginated from "./paginated";
+import NavBar from "./navBar";
 
 export default function Home () {
    
@@ -69,12 +70,13 @@ function handleFilterByTemperament(e){
     return(
         <div className={s.conteiner}>
         <div className={s.bloque}>
+            <NavBar />
             <h1>El paraiso de los perris</h1>
             <button onClick={e => (handleClick(e))}>
                 Volver a cargar todos los perris
             </button>
         </div>
-        <Link to="/dog">Crear perrito</Link>
+       
         <div>
             <div>
                 <select className={s.select} onChange={e=> handleSort(e)}>
@@ -111,7 +113,7 @@ function handleFilterByTemperament(e){
                  <ul className={s.grid}>  {currentDogs?.map((d) => {
                 return (
                         <div>
-                        <Link to={"/home/" + d.id}>
+                        <Link to={`/home/${d.id}`}>
                         <Card name={d.name} img={d.image? d.image : "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg"} temperament={d.temperament}/>
                         </Link>
                         </div>

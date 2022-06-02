@@ -1,0 +1,32 @@
+import React from "react";
+import {Link} from "react-router-dom";
+import s from "../styles/NavBar.module.css";
+import SearchBar from "./searchBar";
+
+export default function NavBar() {
+
+
+  return (
+    <header>
+      <nav className={s.navbar}>
+            <Link exact to="/home">
+              <img className={s.imgHome}
+                id="home"
+                src={"https://cdn-icons-png.flaticon.com/512/1064/1064041.png"}
+                width="50"
+                height="50"
+                alt="img not found"
+              />
+            </Link>
+        
+        <Link to="/dog">
+        <button className={s.btn}>
+           Crear perrito!
+        </button>
+        </Link>
+        
+        <SearchBar />
+      </nav>
+    </header>
+  );
+}

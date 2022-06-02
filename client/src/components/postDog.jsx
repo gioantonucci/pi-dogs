@@ -223,12 +223,12 @@ export default function PostDog() {
                 <div className={s.row}>
                     <label className={s.label}>*Temperamentos (minimo 1, maximo 3) </label>
                     {errors.temperaments && (<p className= {s.error} >{errors.temperaments}</p>)}
-                    <select onChange={(e)=> handleSelect(e)}> 
+                    <select className={s.select}onChange={(e)=> handleSelect(e)}> 
                         {temperaments.map((temp) => (
                             <option value={temp.name} key={temp.id}>{temp.name}</option>
                         ))}
                     </select>
-                    <ul className={s.ul}><li key={'key'}>{input.temperaments.map(el => <button className={s.botonTemp} type='button' key={el.id} onClick={()=>handleDelete(el)}>{el}</button>)}</li></ul>
+                    <ul className={s.ul}><li className={s.li} key={'key'}>{input.temperaments.map(el => <button className={s.botonTemp} type='button' key={el.id} onClick={()=>handleDelete(el)}>{el}</button>)}</li></ul>
                 </div>
                 
                 <button className={s.btn}type='submit'>Crear!</button>

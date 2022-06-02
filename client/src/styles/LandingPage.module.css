@@ -2,8 +2,7 @@
     height: 100vh;
     width: 100%;
     display: flex;
-    background-image: url("https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-    background-size: cover;
+    background-image: url("https://img.freepik.com/vector-gratis/patron-infantil-fisuras-perros-lindos_429461-311.jpg?w=740");
     overflow: auto;
     padding: 30px;
     display: grid;

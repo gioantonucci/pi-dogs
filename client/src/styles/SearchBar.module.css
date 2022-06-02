@@ -1,3 +1,41 @@
-.conteiner {
-    background-color: antiquewhite;
+.nav {
+    margin: 50px 100px;
+    display: inline-block;
+    position: relative;
+    height: 60px;
+    padding: 0;
+    position: relative;
+}
+
+.form {
+    float: right;
+}
+
+.input {
+    padding: 6px 10px;
+    margin-top: 8px;
+    font-size: 20px;
+    border: none;
+}
+
+.input:active {
+    border: #ddd;
+    color: white;
+}
+
+
+.btn {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {    
+    background-color: #ccc;
+    transform: scale(1.1);
 }

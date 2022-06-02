@@ -96,7 +96,7 @@ router.get('/dogs', async (req, res) => {
 // - Debe traer solo los datos pedidos en la ruta de detalle de raza de perro
 // - Incluir los temperamentos asociados
 router.get('/dogs/:id', async (req, res) => {
-  const id = req.params.id;
+  const id = req.params;
   const dogsTotal = await getAllDogs();
   if (id) {
       let dogId = await dogsTotal.filter(el => el.id == id);

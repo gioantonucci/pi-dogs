@@ -22,10 +22,10 @@ function onInputChange(e) {
 
 }
     return (
-        <div className={s.conteiner}>
-            <form onSubmit={onSubmit}>
-            <input type='text' placeholder="Buscar perrito..."  onChange={onInputChange}></input>
-            <input type='submit' value='Buscar'></input>
+        <div className={s.nav}>
+            <form className={s.form} onSubmit={onSubmit}>
+            <input className={s.input} type='text' placeholder="Buscar perrito..."  onChange={onInputChange}></input>
+            <input className={s.btn} type='submit' value='🔍'></input>
             </form>
         </div>
     )
