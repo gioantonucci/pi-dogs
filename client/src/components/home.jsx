@@ -111,9 +111,11 @@ function handleFilterByTemperament(e){
             />
              <div className={s.card} >
                  <ul className={s.grid}>  {currentDogs?.map((d) => {
+                    const route = `/home/${d.id}`
+
                 return (
                         <div>
-                        <Link to={`/home/${d.id}`}>
+                        <Link to= {route}>
                         <Card name={d.name} img={d.image? d.image : "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg"} temperament={d.temperament}/>
                         </Link>
                         </div>

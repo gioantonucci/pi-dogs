@@ -35,6 +35,13 @@ export function getDetail (id) {
     }
 }
 
+export function getClean () {
+    return{
+        type: "GET_CLEAN",
+        payload: []
+    }
+}
+
 export function searchDogs(search) {
     return async function (dispatch) {
     await axios.get("http://localhost:3001/dogs?name=" + search)

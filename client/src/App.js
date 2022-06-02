@@ -10,22 +10,21 @@ import DogDetail from './components/dogDetail';
 function App() {
   return (
     <>
-    <BrowserRouter>
     <div className="App">
-        <Route exact path='/'>
-          <LandingPage />
+    <Route  path='/home/:id' >
+        <DogDetail />
         </Route>
-        <Route path='/home'>
+        <Route exact path='/'>
+        <LandingPage />
+        </Route>
+        <Route exact path='/home'>
           <Home />
         </Route>
         <Route path='/dog'>
           <PostDog />
         </Route>
-        <Route path='/home/:id' >
-          <DogDetail />
-        </Route>
+        
     </div>
-    </BrowserRouter>
     </>
   );
 }
