@@ -5,10 +5,12 @@ import s from '../styles/LandingPage.module.css'
 export default function LandingPage(){
     return (
     <div className={s.conteiner}>
-        <h1>GUAU GUAU?</h1>
+        <div className={s.div}>
+        <h1 className={s.title}>GUAU GUAU?</h1>
         <Link to="/home">
             <button className={s.btn}>GUAU!</button>
         </Link>
+        </div>
     </div>
     )
 }

@@ -13,7 +13,7 @@
   grid-template-rows: repeat(auto-fill, 50px);
   padding: 10px;
   font-weight: normal;
-  display: grid;
+
     
 }
 
@@ -22,7 +22,6 @@
   width: 600px;
   margin: auto;
   border-radius: 15px;
-   
 }
  
 .label{

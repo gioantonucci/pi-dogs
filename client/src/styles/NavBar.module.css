@@ -1,11 +1,9 @@
 .navbar {
   background-color: antiquewhite;
-  
-  height: 10%;
+  height: 5%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 
 

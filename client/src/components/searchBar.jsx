@@ -11,21 +11,24 @@ let dispatch = useDispatch()
 
 function onSubmit(e) {
     e.preventDefault();
-    dispatch(searchDogs(search))
-
+    dispatch(searchDogs(search));
+    setSearch('');
 }
 
 function onInputChange(e) {
     e.preventDefault();
     setSearch(e.target.value)
+    
     console.log(search)
 
 }
     return (
         <div className={s.nav}>
             <form className={s.form} onSubmit={onSubmit}>
-            <input className={s.input} type='text' placeholder="Buscar perrito..."  onChange={onInputChange}></input>
+            <input className={s.input} type='text' placeholder="Buscar perrito..." value={search} onChange={onInputChange}></input>
+           
             <input className={s.btn} type='submit' value='🔍'></input>
+           
             </form>
         </div>
     )

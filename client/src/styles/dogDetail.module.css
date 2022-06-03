@@ -1,9 +1,45 @@
 .contiener {
-    background-image: url("https://img.freepik.com/vector-gratis/patron-costuras-huellas-perros-colores_429461-332.jpg?w=740");
+  background-image: url("https://img.freepik.com/vector-gratis/patron-costuras-huellas-perros-colores_429461-332.jpg?w=740");
   height: 100vh;
   width: 100%;
   overflow: auto;
   padding: 10px;
   display: flex;
   flex-direction: column;
+}
+
+.card {
+  background-color: white;
+  width: auto;
+  margin: auto;
+
+  border-radius: 15px;
+}
+
+.img {
+  width: 50%;
+  height: 50%;
+  border-radius: 5px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  width: 20%;
+  background-color: burlywood;
+  color: white;
+  padding: 10px 10px;
+  margin: auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(156, 130, 96);
+  transform: scale(1.1);
+  cursor: pointer;
 }

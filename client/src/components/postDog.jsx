@@ -32,7 +32,7 @@ function validate(input) {
     if(input.temperaments.length < 1 ){
         errors.temperaments = "Tu perrito requiere al menos un temperamento!"
     }
-    if(input.temperaments.length > 3 ){
+    if(input.temperaments.length >= 3 ){
         errors.temperaments = "Tu perrito puede tener hasta 3 temperamentos!"
     
     } return errors 
@@ -60,7 +60,8 @@ export default function PostDog() {
         img:""
     })
       
-
+    console.log(temperaments)
+    console.log(temperaments.state)
     //al estado input ademas de lo que tiene le agrega el e.target.value de lo que este modificando
     //va llenando el estado que planteamos arriba
     function handleChange(e) {
@@ -140,6 +141,7 @@ export default function PostDog() {
                 <br/>
                 <input className={s.input} 
                 type="number" 
+                min="1" max="100"
                 value={input.height_min} 
                 name='height_min' 
                 id='height_min'  
@@ -150,6 +152,7 @@ export default function PostDog() {
                 <label></label>
                 <input className={s.input}
                 type="number" 
+                min="1" max="100"
                 value={input.height_max} 
                 name='height_max' 
                 id='height_max'  
@@ -164,6 +167,7 @@ export default function PostDog() {
                 <br/>
                 <input className={s.input}
                 type='number'
+                min="1" max="100"
                 value={input.weight_min}
                 name="weight_min"
                 id= 'weight_min'
@@ -175,6 +179,7 @@ export default function PostDog() {
                 <label className={s.label}></label>
                 <input className={s.input}
                 type='number'
+                min="1" max="100"
                 value={input.weight_max}
                 name="weight_max"
                 id="weight_max"
@@ -189,6 +194,7 @@ export default function PostDog() {
                 <label className={s.label}>*Años de vida:</label>
                 <br/>
                 <input className={s.input}
+                min="1" max="100"
                 type='number'
                 value={input.life_span_min}
                 name="life_span_min"
@@ -199,6 +205,7 @@ export default function PostDog() {
                 {errors.life_span_min && (<p className={s.error}>{errors.life_span_min}</p>)}
                 <label className={s.label}></label>
                 <input className={s.input}
+                min="1" max="100"
                 type='number'
                 value={input.life_span_max}
                 name="life_span_max"

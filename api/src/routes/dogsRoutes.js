@@ -21,12 +21,15 @@ const getApiInfo = async () => {
      
         return {
         
-         name: e.name,
+        name: e.name,
         id: e.id,
+        
         height_max: e.height.metric.split(" - ")[1] && e.height.metric.split(" - ")[1],
         height_min: e.height.metric.split(" - ")[0] && e.height.metric.split(" - ")[0],
+        
         weight_max: e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
         weight_min: e.weight.metric.split(" - ")[0] !== "NaN" ? e.weight.metric.split(" - ")[0] : 6,
+        
         life_time_max: e.life_span.split(" - ")[1] && e.life_span.split(" - ")[1].split(" ")[0],
         life_time_min: e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
         temperament: e.temperament ? e.temperament : "Perrito sin temperamentos!",
