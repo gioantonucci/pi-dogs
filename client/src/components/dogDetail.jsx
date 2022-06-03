@@ -12,7 +12,7 @@ export default function DogDetail(){
     
     const { id } = useParams();
 
-    console.log(id)
+    //console.log(id)
 
     useEffect(()=> {
         dispatch(getDetail(id));
@@ -20,11 +20,11 @@ export default function DogDetail(){
     }, [dispatch, id])
 
     
-    console.log(myDog)
+    //console.log(myDog)
     return (
         
         <div className = {s.contiener}>
-           
+    
             {
                 myDog.length > 0 ?
                 <div className={s.card}>
@@ -33,7 +33,7 @@ export default function DogDetail(){
                     <h2 className={s.text}>Su esperanza de vida es de entre {myDog[0].life_time_min} y {myDog[0].life_time_max} años.</h2>
                     <h2 className={s.text}>Sus temperamentos son {myDog[0].temperament}.</h2>
                     <h3 className={s.text}>Puede medir entre {myDog[0].height_min} y {myDog[0].height_max} cm.</h3>
-                    <h3 className={s.text}>y pesar entre {myDog[0].weight_min} y {myDog[0].weight_max}kg.</h3>
+                    <h3 className={s.text}>y pesar entre {myDog[0].weight_min} y {myDog[0].weight_max} kg.</h3>
                 </div> : <p className={s.loading}>Loading..</p>
             }
              <Link to = '/home'>

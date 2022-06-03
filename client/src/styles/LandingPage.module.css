@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .conteiner {
   height: 100vh;
   width: 100%;
   background-image: url("https://img.freepik.com/vector-gratis/patron-infantil-fisuras-perros-lindos_429461-311.jpg?w=740");
   overflow: auto;
-  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +27,7 @@
 }
 
 .title {
-  font-family: cursive;
+  font: bold 7.5vw/1.6 'Lobster', sans-serif;
   color: white;
   font-size: 80px;
   letter-spacing: 5px;
@@ -35,3 +36,8 @@
 
 }
 
+.btn:hover {
+  background-color: rgb(165, 48, 2);
+  transform: scale(1.1);
+  cursor: pointer;
+}

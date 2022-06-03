@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import Card from "./card";
 import s from "../styles/Home.module.css";
 import Paginated from "./paginated";
+import NavBar from "./navBar";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -73,7 +74,8 @@ export default function Home() {
 
   return (
     <div className={s.conteiner}>
-      <div className={s.bloque}>
+      <NavBar />
+      <div className={s.title}>
         <h1>El paraiso de los perris</h1>
       </div>
 
@@ -84,10 +86,14 @@ export default function Home() {
             <option value="desc">Z-A</option>
           </select>
 
+         
+         
           <select className={s.select} onChange={(e) => handleSortWeight(e)}>
             <option value="weightasc"> Más pesado </option>
             <option value="weightdesc"> Menos pesado </option>
           </select>
+          <div></div>
+          
           <select
             className={s.select}
             onChange={(e) => handleFilterByTemperament(e)}
@@ -132,7 +138,9 @@ export default function Home() {
                         ? d.image
                         : "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg"
                     }
-                    temperament={d.temperament}
+                    temperament={d.temperament? d.temperament : "niideapa"}
+                    weight_max={d.weight_max}
+                    weight_min={d.weight_min}
                   />
                 </Link>
               </div>
@@ -145,8 +153,8 @@ export default function Home() {
 
   /*
 Ruta principal: debe contener
-- [ ] Input de búsqueda para encontrar razas de perros por nombre
-- [ ] Área donde se verá el listado de razas de perros.
+- [x] Input de búsqueda para encontrar razas de perros por nombre
+- [x] Área donde se verá el listado de razas de perros.
  Deberá mostrar su:
   - Imagen
   - Nombre
@@ -159,6 +167,6 @@ Ruta principal: debe contener
  ascendentemente como descendentemente las razas de perro por:
     - Orden alfabético 
     - Peso
-- [ ] Paginado para ir buscando y mostrando las siguientes razas, mostrando 8 razas por página.
+- [*] Paginado para ir buscando y mostrando las siguientes razas, mostrando 8 razas por página.
 */
 }

@@ -34,11 +34,16 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
     
-      life_span: {
+      life_time_min: {
         type: DataTypes.STRING,
         allowNull: true,
       },
       
+      life_time_max: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+
       userCreated: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

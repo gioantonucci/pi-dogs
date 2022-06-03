@@ -10,9 +10,8 @@
 
 .card {
   background-color: white;
-  width: auto;
+  width: 60%;
   margin: auto;
-
   border-radius: 15px;
 }
 

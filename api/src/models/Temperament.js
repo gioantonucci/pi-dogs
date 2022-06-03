@@ -7,8 +7,13 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      primaryKey: true
     },
     
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+    }
     //el id se define solo con sequelize
   });
 };

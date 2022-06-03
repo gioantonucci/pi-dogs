@@ -4,7 +4,6 @@ import LandingPage from "./components/landingPage";
 import Home from "./components/home";
 import PostDog from "./components/postDog";
 import DogDetail from "./components/dogDetail";
-import NavBar from "./components/navBar";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
           <LandingPage />
         </Route>
         <Route exact path="/home">
-        <NavBar />
           <Home />
         </Route>
         <Route path="/dog">

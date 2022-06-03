@@ -1,60 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .conteiner {
-    background-image: url("https://img.freepik.com/vector-gratis/patron-costuras-huellas-perros-colores_429461-332.jpg?w=740");
-    height: 100vh;
-    width: 100%;
-    overflow: auto;
-    padding: 10px;
+  background-image: url("https://img.freepik.com/vector-gratis/patron-costuras-huellas-perros-colores_429461-332.jpg?w=740");
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+}
+
+.title {
+  font: bold 7.5vw/1.6 "Lobster", sans-serif;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 5px;
+  text-shadow: -1px -1px 0px #f4511e, 3px 3px 0px gainsboro, 6px 6px 0px teal;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 350px);
-    gap: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+  gap: 50px;
 }
 
 .card {
-    width: 80%;
-    justify-content: center;
-    text-align: center;
-    margin: auto;
+  width: 80%;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 
 .select {
-    width: 30%;
-    padding: 12px 20px;
-    margin: 8px 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
-  .btn {
-    width: 20%;
-    background-color: burlywood;
-    color: white;
-    padding: 10px 10px;
-    margin: auto;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  
+.btn {
+  width: 20%;
+  background-color: burlywood;
+  color: white;
+  padding: 10px 10px;
+  margin: auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn:hover {
-    background-color: rgb(156, 130, 96);
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+  background-color: rgb(156, 130, 96);
+  transform: scale(1.1);
+  cursor: pointer;
+}
