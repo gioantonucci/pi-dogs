@@ -19,8 +19,7 @@ export default function DogDetail(){
         dispatch(getClean());
     }, [dispatch, id])
 
-    
-    //console.log(myDog)
+
     return (
         
         <div className = {s.contiener}>
@@ -35,7 +34,7 @@ export default function DogDetail(){
                     <img className={s.img} alt='img not found' src= {myDog[0].image? myDog[0].image :
                     "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg"}/>
                     <h2 className={s.text}>Their life span is between {myDog[0].life_time_min} and {myDog[0].life_time_max} years.</h2>
-                    <h2 className={s.text}>Their temperaments are {myDog[0].temperament}.</h2>
+                    <h2 className={s.text}>Their temperaments are {!myDog[0].userCreated? myDog[0].temperament + ' ' : myDog[0].temperaments.map(el => el.name + (', '))}.</h2>
                     <h3 className={s.text}>This dog can measure between {myDog[0].height_min} and {myDog[0].height_max} cm.</h3>
                     <h3 className={s.text}>and weight between {myDog[0].weight_min} and {myDog[0].weight_max} kg.</h3>
                 </div> : <p className={s.loading}>Loading..</p>

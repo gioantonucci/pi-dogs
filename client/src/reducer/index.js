@@ -88,7 +88,7 @@ function rootReducer (state= initialState, action){
             const allDogs = state.allDogs;
             const temperamentsFilter = action.payload === "all" ?
             allDogs : allDogs.filter(el => {
-                return el.temperament?.split(", ").includes(action.payload)
+                return el.temperaments?.split(", ").includes(action.payload)
             })
             //console.log(temperamentsFilter)
             return {

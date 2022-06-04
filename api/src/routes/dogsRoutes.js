@@ -45,7 +45,7 @@ const getApiInfo = async () => {
        
           temperament: e.temperament
           ? e.temperament
-          : "desconocidos.",
+          : "Unknown",
        
        
        
@@ -66,6 +66,8 @@ const getDBinfo = async () => {
     });
     
     const info = perros.map((e) => {
+      let temp = e.temperaments.map(e=> e.name)
+      let aux = temp.join(', ')
      // console.log("ACA ESTOY", e.temperament)
       return {
         name: e.name,
@@ -80,11 +82,11 @@ const getDBinfo = async () => {
         life_time_max: e.life_time_max,
         life_time_min: e.life_time_min,
         
-        temperament: e.temperaments,
+        temperament: aux,
         image: e.image? e.image : "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg",
       };
     });
-    console.log(info)
+    //console.log(info)
     return info;
   } catch (error) {
     console.log("Hubo un error en getDBInfo", error);
@@ -146,6 +148,8 @@ router.get('/dogs/:id', async (req, res, next) =>{
         const dogsTotal = await getAllDogs();
         console.log(dogsTotal)
         let dogId = dogsTotal.filter(el => el.id == id);
+        // console.log("id",  dogId)
+        // console.log("db",  dogBd)
         if(dogId) {
           res.send(dogId)
         } else {

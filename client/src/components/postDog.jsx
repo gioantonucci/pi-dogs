@@ -23,16 +23,16 @@ function validate(input) {
     if(input.weight_max <= input.weight_min) {
         errors.height_max = "El mínimo no puede ser mayor al máximo!" 
     }
-    if(!input.life_span_min) {
-        errors.life_span_min = "Falta el mínimo!"
+    if(!input.life_time_min) {
+        errors.life_time_min = "Falta el mínimo!"
     }
     if(input.life_time_max <= input.life_time_min) {
-        errors.life_span_max = "El valor mínimo no puede ser mayor al máximo!"
+        errors.life_time_max = "El valor mínimo no puede ser mayor al máximo!"
     }
-    if(input.temperaments.length < 1 ){
+    if(input.temperament.length < 1 ){
         errors.temperaments = "Tu perrito requiere al menos un temperamento!"
     }
-    if(input.temperaments.length >= 3 ){
+    if(input.temperament.length >= 3 ){
         errors.temperaments = "Tu perrito puede tener hasta 3 temperamentos!"
     
     } return errors 
@@ -56,12 +56,12 @@ export default function PostDog() {
         weight_max: "",
         life_time_min: "",
         life_time_max: "",
-        temperaments: [],
+        temperament: [],
         img:""
     })
       
     console.log(temperaments)
-    console.log(temperaments.state)
+    
     //al estado input ademas de lo que tiene le agrega el e.target.value de lo que este modificando
     //va llenando el estado que planteamos arriba
     function handleChange(e) {
@@ -69,25 +69,24 @@ export default function PostDog() {
             ...input,
             [e.target.name] : e.target.value
         })
-        console.log(input)
+        //console.log(input)
         setErrors(validate({
             ...input,
             [e.target.name] : e.target.name
         }));
-        console.log(input)
+        //console.log(input)
     };
 
     function handleSelect(e) {
         setInput ({
             ...input,
-            temperaments: [...input.temperaments, e.target.value]
+            temperament: [...input.temperament, e.target.value]
         })
     }
     function handleDelete(el){
         setInput({
             ...input,
-            temperaments: 
-            input.temperaments.filter(e=> e !== el)
+            temperament: input.temperament.filter(e=> e !== el)
         })
         console.log(input)
     }
@@ -103,7 +102,9 @@ export default function PostDog() {
             height_max: "",
             weight_min: "",
             weight_max: "",
-            life_span: "",
+            life_time_min: "",
+            life_time_max: "",
+            image: "",
             temperaments: []
             })
             history.push('/home')
@@ -201,26 +202,26 @@ export default function PostDog() {
                 <input className={s.input}
                 min="1" max="100"
                 type='number'
-                value={input.life_span_min}
-                name="life_span_min"
-                id= "life_span_min"
+                value={input.life_time_min}
+                name="life_time_min"
+                id= "life_time_min"
                 required
                 placeholder="Min"
                 onChange={(e) =>handleChange(e)}
                 /> year/s
-                {errors.life_span_min && (<p className={s.error}>{errors.life_span_min}</p>)}
+                {errors.life_time_min && (<p className={s.error}>{errors.life_time_min}</p>)}
                 <label className={s.label}></label>
                 <input className={s.input}
                 min="1" max="100"
                 type='number'
-                value={input.life_span_max}
-                name="life_span_max"
-                id="life_span_max"
+                value={input.life_time_max}
+                name="life_time_max"
+                id="life_time_max"
                 required
                 placeholder="Max"
                 onChange={(e) =>handleChange(e)}
                 /> years.
-                {errors.life_span_max && (<p className={s.error}>{errors.life_span_max}</p>)}
+                {errors.life_time_max && (<p className={s.error}>{errors.life_time_max}</p>)}
                 {/* </div> */}
 {/*------imagen----------------------------------------------------------------*/}                
                 {/* <div className={s.row}> */}
@@ -242,7 +243,7 @@ export default function PostDog() {
                             <option value={temp.name} key={temp.id}>{temp.name}</option>
                         ))}
                     </select>
-                    <ul className={s.ul}><li className={s.li} key={'key'}>{input.temperaments.map(el => <button className={s.botonTemp} type='button' key={el.id} onClick={()=>handleDelete(el)}>{el}</button>)}</li></ul>
+                    <ul className={s.ul}><li className={s.li} key={'key'}>{input.temperament.map(el => <button className={s.botonTemp} type='button' key={el.id} onClick={()=>handleDelete(el)}>{el}</button>)}</li></ul>
                 </div>
                 
                 <button className={s.btn}type='submit'>Create!</button>

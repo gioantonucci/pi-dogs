@@ -132,6 +132,7 @@ export default function Home() {
                 <ul className={s.grid}>
                 {" "}
                 {currentDogs?.map((d) => {
+                  console.log(d.temperament[0].name)
                     return (
     <div>
                 <Link to={`/home/${d.id}`}>
@@ -139,7 +140,8 @@ export default function Home() {
                 className={s.card}
                 name={d.name}
                 img={d.image? d.image: "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg"}
-                temperament={d.temperament ? d.temperament : "niideapa"}
+                temperament={d.temperament}
+
                 weight_max={d.weight_max}
                 weight_min={d.weight_min}
                 />

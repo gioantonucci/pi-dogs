@@ -61,7 +61,7 @@ export function searchDogs(search) {
 export function postDog (payload) {
     return async function(dispatch) {
         const response = await axios.post("http://localhost:3001/dog", payload);
-        console.log(response)
+        //console.log("soy", response.temperament[1])
         return response;
     }
 }
