@@ -96,7 +96,7 @@ export default function PostDog() {
         e.preventDefault();
         console.log(input)
          dispatch(postDog(input))
-            alert("Perrito creado!")
+            alert("Done!")
             setInput({
             name: "",
             height_min: "",
@@ -117,27 +117,27 @@ export default function PostDog() {
 
     return (
         <div className={s.conteiner}>
-            <Link to= '/home'><button className={s.btn}> Volver a home</button></Link>
-            <h1 className={s.title}>Crea un nuevo perrito!</h1>
+            <Link to= '/home'><button className={s.btn}> Back to home</button></Link>
+            <h1 className={s.title}>Create a new dog!</h1>
             <form className={s.form} onSubmit={(e) => handleSubmit(e)}>
-            <p className={s.obligatorio}>* : Campo obligatorio</p>
+            <p className={s.obligatorio}>* : Required</p>
 {/*--------INPUTS-------------------------------------------------------*/}         
 {/*--------raza---------------------------------------------------------*/}
                 <div className={s.row}>
-                <label className={s.label}>*Raza:</label>
+                <label className={s.label}>*Breed:</label>
                 <input className={s.inputl}
                 type='text'
                 value={input.name}
                 name="name"
                 id='name' 
-                placeholder="Ingresa la raza..."
+                placeholder="Enter the breed..."
                 onChange={(e) =>handleChange(e)}
                 />
                {errors.name && (<p className={s.error}>{errors.name}</p>)}
                 </div>
 {/*--------tamaño-----------------------------------------------------------------*/}        
                 <div className={s.row}>
-                <label className={s.label}>*Tamaño</label>
+                <label className={s.label}>*Size</label>
                 <br/>
                 <input className={s.input} 
                 type="number" 
@@ -145,7 +145,7 @@ export default function PostDog() {
                 value={input.height_min} 
                 name='height_min' 
                 id='height_min'  
-                placeholder="Mín" 
+                placeholder="Min" 
                 onChange={(e)=>handleChange(e)}/>
                 cm.
                 {errors.height_min && (<p className= {s.error} >{errors.height_min}</p>)}
@@ -156,14 +156,14 @@ export default function PostDog() {
                 value={input.height_max} 
                 name='height_max' 
                 id='height_max'  
-                placeholder="Máx"
+                placeholder="Max"
                 onChange={(e)=>handleChange(e)}/>
                 cm.
                 {errors.height_max && (<p className= {s.error} >{errors.height_max}</p>)}
                 </div>
 {/*-------peso------------------------------------------------------------------*/}               
                 <div className={s.row}>
-                <label className={s.label}>*Peso:</label>
+                <label className={s.label}>*Weight:</label>
                 <br/>
                 <input className={s.input}
                 type='number'
@@ -171,7 +171,7 @@ export default function PostDog() {
                 value={input.weight_min}
                 name="weight_min"
                 id= 'weight_min'
-                placeholder="Mín"
+                placeholder="Min"
                 onChange={(e) =>handleChange(e)}
                 />
                 kg.
@@ -183,7 +183,7 @@ export default function PostDog() {
                 value={input.weight_max}
                 name="weight_max"
                 id="weight_max"
-                placeholder="Máx"
+                placeholder="Max"
                 onChange={(e) =>handleChange(e)}
                 />
                 kg.
@@ -191,7 +191,7 @@ export default function PostDog() {
                 </div>
 {/*-------años-----------------------------------------------------------------*/}        
                 <div className={s.row}>
-                <label className={s.label}>*Años de vida:</label>
+                <label className={s.label}>*Lifespan:</label>
                 <br/>
                 <input className={s.input}
                 min="1" max="100"
@@ -199,7 +199,7 @@ export default function PostDog() {
                 value={input.life_span_min}
                 name="life_span_min"
                 id= "life_span_min"
-                placeholder="Mín"
+                placeholder="Min"
                 onChange={(e) =>handleChange(e)}
                 /> año/s.
                 {errors.life_span_min && (<p className={s.error}>{errors.life_span_min}</p>)}
@@ -210,25 +210,25 @@ export default function PostDog() {
                 value={input.life_span_max}
                 name="life_span_max"
                 id="life_span_max"
-                placeholder="Máx"
+                placeholder="Max"
                 onChange={(e) =>handleChange(e)}
                 /> años.
                 {errors.life_span_max && (<p className={s.error}>{errors.life_span_max}</p>)}
                 </div>
 {/*------imagen----------------------------------------------------------------*/}                
                 <div className={s.row}>
-                    <label className={s.label}>Imagen:</label>
+                    <label className={s.label}>Image:</label>
                     <input type='imagen'
                     className={s.inputl}
                     value={input.image}
                     name="image"
-                    placeholder="Ingresa la URL de tu imagen"
+                    placeholder="URL"
                     onChange={(e) =>handleChange(e)}
                     />
                 </div>
 {/*------temperamentos-----------------------------------------------------*/}
                 <div className={s.row}>
-                    <label className={s.label}>*Temperamentos (minimo 1, maximo 3) </label>
+                    <label className={s.label}>*Temperaments:</label>
                     {errors.temperaments && (<p className= {s.error} >{errors.temperaments}</p>)}
                     <select className={s.select}onChange={(e)=> handleSelect(e)}> 
                         {temperaments.map((temp) => (
@@ -238,7 +238,7 @@ export default function PostDog() {
                     <ul className={s.ul}><li className={s.li} key={'key'}>{input.temperaments.map(el => <button className={s.botonTemp} type='button' key={el.id} onClick={()=>handleDelete(el)}>{el}</button>)}</li></ul>
                 </div>
                 
-                <button className={s.btn}type='submit'>Crear!</button>
+                <button className={s.btn}type='submit'>Create!</button>
             </form>
         </div>
     )

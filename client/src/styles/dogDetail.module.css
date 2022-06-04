@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
 .contiener {
   background-image: url("https://img.freepik.com/vector-gratis/patron-costuras-huellas-perros-colores_429461-332.jpg?w=740");
   height: 100vh;
@@ -8,8 +11,21 @@
   flex-direction: column;
 }
 
+.title {
+  font: bold 7.5vw/1.6 "Lobster", sans-serif;
+  color: white;
+  font-size: 40px;
+  letter-spacing: 5px;
+  text-shadow: -1px -1px 0px #f4511e, 3px 3px 0px gainsboro, 6px 6px 0px teal;
+}
+
+.text {
+  font:  7.5vw/1.6 "Lobster", sans-serif;
+  color: teal;
+  font-size: 20px;
+}
 .card {
-  background-color: white;
+  background-color: gainsboro;;
   width: 60%;
   margin: auto;
   border-radius: 15px;
@@ -18,7 +34,7 @@
 .img {
   width: 50%;
   height: 50%;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .text {
@@ -41,4 +57,12 @@
   background-color: rgb(156, 130, 96);
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.loading {
+  font: bold 7.5vw/1.6 "Lobster", sans-serif;
+  color: white;
+  font-size: 50px;
+  letter-spacing: 5px;
+  text-shadow: -1px -1px 0px #f4511e, 3px 3px 0px gainsboro, 6px 6px 0px teal;
 }

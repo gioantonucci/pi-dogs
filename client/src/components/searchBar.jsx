@@ -25,7 +25,7 @@ function onInputChange(e) {
     return (
         <div className={s.nav}>
             <form className={s.form} onSubmit={onSubmit}>
-            <input className={s.input} type='text' placeholder="Buscar perrito..." value={search} onChange={onInputChange}></input>
+            <input className={s.input} type='text' placeholder="Search dog..." value={search} onChange={onInputChange}></input>
            
             <input className={s.btn} type='submit' value='🔍'></input>
            

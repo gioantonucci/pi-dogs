@@ -76,32 +76,36 @@ export default function Home() {
     <div className={s.conteiner}>
       <NavBar />
       <div className={s.title}>
-        <h1>El paraiso de los perris</h1>
+        <h1>Doggie's paradise</h1>
       </div>
 
       <div>
         <div className={s.row}>
           <select className={s.select} onChange={(e) => handleSort(e)}>
+            <option value="" disabled selected>
+              Alphabetical order
+            </option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
           </select>
 
-         
-         
           <select className={s.select} onChange={(e) => handleSortWeight(e)}>
-            <option value="weightasc"> Más pesado </option>
-            <option value="weightdesc"> Menos pesado </option>
+            <option value="" disabled selected>
+              Order by weight
+            </option>
+            <option value="weightasc">Heavier</option>
+            <option value="weightdesc">Lighter</option>
           </select>
           <div></div>
-          
+
           <select
             className={s.select}
             onChange={(e) => handleFilterByTemperament(e)}
           >
             <option value="" disabled selected>
-              Filtrar por temperamento:
+              Filter by temperament
             </option>
-            <option value="all">Todos</option>
+            <option value="all">All</option>
             {allTemperaments?.map((temp) => (
               <option key={temp.id} value={temp.name}>
                 {temp.name}
@@ -109,13 +113,16 @@ export default function Home() {
             ))}
           </select>
           <select className={s.select} onChange={(e) => handleFilterCreated(e)}>
-            <option value="all">Todos</option>
-            <option value="api">Raza existente</option>
-            <option value="created">Raza creada</option>
+            <option value="" disabled selected>
+              Filter by create
+            </option>
+            <option value="all">All</option>
+            <option value="api">By API</option>
+            <option value="created">By database</option>
           </select>
         </div>
         <button className={s.btn} onClick={(e) => handleClick(e)}>
-          Volver a cargar todos los perris
+          Reload dogs
         </button>
       </div>
       <Paginated
@@ -138,7 +145,7 @@ export default function Home() {
                         ? d.image
                         : "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg"
                     }
-                    temperament={d.temperament? d.temperament : "niideapa"}
+                    temperament={d.temperament ? d.temperament : "niideapa"}
                     weight_max={d.weight_max}
                     weight_min={d.weight_min}
                   />

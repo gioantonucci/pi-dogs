@@ -24,22 +24,23 @@ export default function DogDetail(){
     return (
         
         <div className = {s.contiener}>
-    
+            <Link to = '/home'>
+                <button className={s.btn}>Back to Home</button>
+            </Link>
+            
             {
                 myDog.length > 0 ?
                 <div className={s.card}>
-                    <h1 className={s.title}>Este es {myDog[0].name}</h1>
-                    <img className={s.img} alt='img not found' src= {myDog[0].image? myDog[0].image : myDog[0].img}/>
-                    <h2 className={s.text}>Su esperanza de vida es de entre {myDog[0].life_time_min} y {myDog[0].life_time_max} años.</h2>
-                    <h2 className={s.text}>Sus temperamentos son {myDog[0].temperament}.</h2>
-                    <h3 className={s.text}>Puede medir entre {myDog[0].height_min} y {myDog[0].height_max} cm.</h3>
-                    <h3 className={s.text}>y pesar entre {myDog[0].weight_min} y {myDog[0].weight_max} kg.</h3>
+                    <h1 className={s.title}>{myDog[0].name}</h1>
+                    <img className={s.img} alt='img not found' src= {myDog[0].image? myDog[0].image :
+                    "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg"}/>
+                    <h2 className={s.text}>Their life span is between {myDog[0].life_time_min} and {myDog[0].life_time_max} years.</h2>
+                    <h2 className={s.text}>Their temperaments are {myDog[0].temperament}.</h2>
+                    <h3 className={s.text}>This dog can measure between {myDog[0].height_min} and {myDog[0].height_max} cm.</h3>
+                    <h3 className={s.text}>and weight between {myDog[0].weight_min} and {myDog[0].weight_max} kg.</h3>
                 </div> : <p className={s.loading}>Loading..</p>
             }
-             <Link to = '/home'>
-                <button className={s.btn}>Volver a Home</button>
-            </Link>
-            
+         
         </div>
     )
 }

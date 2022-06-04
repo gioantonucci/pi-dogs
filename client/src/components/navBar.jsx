@@ -19,7 +19,7 @@ export default function NavBar() {
         </Link>
 
         <Link to="/dog">
-          <button className={s.btn}>Crear perrito!</button>
+          <button className={s.btn}>Create dog!</button>
         </Link>
 
         <SearchBar />
