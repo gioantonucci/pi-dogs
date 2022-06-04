@@ -2,8 +2,10 @@
   background-color: antiquewhite;
   height: 5%;
   display: flex;
+  align-content: center;
   justify-content: space-around;
   align-items: center;
+  justify-items: center;
 
 }
 
@@ -11,17 +13,24 @@
   width: 100%;
   background-color: burlywood;
   color: white;
-  padding: 10px 10px;
+  padding: 10px 40px;
   margin: auto;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  
 }
 
 .btn:hover {
   background-color: rgb(156, 130, 96);
   transform: scale(1.1);
   cursor: pointer;
+}
+
+
+
+.imgHome {
+  padding-left: 100px;
 }
 
 .imgHome:hover {

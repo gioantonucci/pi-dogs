@@ -130,21 +130,23 @@ export default function PostDog() {
                 value={input.name}
                 name="name"
                 id='name' 
+                required
                 placeholder="Enter the breed..."
                 onChange={(e) =>handleChange(e)}
                 />
                {errors.name && (<p className={s.error}>{errors.name}</p>)}
-                </div>
+                {/* </div> */}
 {/*--------tamaño-----------------------------------------------------------------*/}        
-                <div className={s.row}>
-                <label className={s.label}>*Size</label>
+                {/* <div className={s.rowh}> */}
+                <label className={s.label}>*Size:</label>
                 <br/>
                 <input className={s.input} 
                 type="number" 
                 min="1" max="100"
                 value={input.height_min} 
                 name='height_min' 
-                id='height_min'  
+                id='height_min' 
+                required
                 placeholder="Min" 
                 onChange={(e)=>handleChange(e)}/>
                 cm.
@@ -155,14 +157,15 @@ export default function PostDog() {
                 min="1" max="100"
                 value={input.height_max} 
                 name='height_max' 
-                id='height_max'  
+                id='height_max' 
+                required
                 placeholder="Max"
                 onChange={(e)=>handleChange(e)}/>
                 cm.
                 {errors.height_max && (<p className= {s.error} >{errors.height_max}</p>)}
-                </div>
+                {/* </div> */}
 {/*-------peso------------------------------------------------------------------*/}               
-                <div className={s.row}>
+                {/* <div className={s.roww}> */}
                 <label className={s.label}>*Weight:</label>
                 <br/>
                 <input className={s.input}
@@ -171,6 +174,7 @@ export default function PostDog() {
                 value={input.weight_min}
                 name="weight_min"
                 id= 'weight_min'
+                required
                 placeholder="Min"
                 onChange={(e) =>handleChange(e)}
                 />
@@ -183,14 +187,15 @@ export default function PostDog() {
                 value={input.weight_max}
                 name="weight_max"
                 id="weight_max"
+                required
                 placeholder="Max"
                 onChange={(e) =>handleChange(e)}
                 />
                 kg.
                 {errors.weight_max && (<p className={s.error}>{errors.weight_max}</p>)}
-                </div>
+                {/* </div> */}
 {/*-------años-----------------------------------------------------------------*/}        
-                <div className={s.row}>
+                {/* <div className={s.rowls}> */}
                 <label className={s.label}>*Lifespan:</label>
                 <br/>
                 <input className={s.input}
@@ -199,9 +204,10 @@ export default function PostDog() {
                 value={input.life_span_min}
                 name="life_span_min"
                 id= "life_span_min"
+                required
                 placeholder="Min"
                 onChange={(e) =>handleChange(e)}
-                /> año/s.
+                /> year/s
                 {errors.life_span_min && (<p className={s.error}>{errors.life_span_min}</p>)}
                 <label className={s.label}></label>
                 <input className={s.input}
@@ -210,13 +216,14 @@ export default function PostDog() {
                 value={input.life_span_max}
                 name="life_span_max"
                 id="life_span_max"
+                required
                 placeholder="Max"
                 onChange={(e) =>handleChange(e)}
-                /> años.
+                /> years.
                 {errors.life_span_max && (<p className={s.error}>{errors.life_span_max}</p>)}
-                </div>
+                {/* </div> */}
 {/*------imagen----------------------------------------------------------------*/}                
-                <div className={s.row}>
+                {/* <div className={s.row}> */}
                     <label className={s.label}>Image:</label>
                     <input type='imagen'
                     className={s.inputl}
@@ -225,9 +232,9 @@ export default function PostDog() {
                     placeholder="URL"
                     onChange={(e) =>handleChange(e)}
                     />
-                </div>
+                {/* </div> */}
 {/*------temperamentos-----------------------------------------------------*/}
-                <div className={s.row}>
+                {/* <div className={s.row}> */}
                     <label className={s.label}>*Temperaments:</label>
                     {errors.temperaments && (<p className= {s.error} >{errors.temperaments}</p>)}
                     <select className={s.select}onChange={(e)=> handleSelect(e)}> 
