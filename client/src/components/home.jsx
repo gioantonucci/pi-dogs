@@ -103,7 +103,7 @@ export default function Home() {
                 Filter by temperament
                 </option>
                 <option value="all">All</option>
-                {allTemperaments?.map((temp) => (
+                {allTemperaments.map((temp) => (
                 <option key={temp.id} value={temp.name}>
                 {temp.name}
                 </option>
@@ -132,7 +132,7 @@ export default function Home() {
                 <ul className={s.grid}>
                 {" "}
                 {currentDogs?.map((d) => {
-                  console.log(d.temperament[0].name)
+                 
                     return (
     <div>
                 <Link to={`/home/${d.id}`}>

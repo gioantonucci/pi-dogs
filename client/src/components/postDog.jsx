@@ -60,7 +60,7 @@ export default function PostDog() {
         img:""
     })
       
-    console.log(temperaments)
+    //console.log(temperaments)
     
     //al estado input ademas de lo que tiene le agrega el e.target.value de lo que este modificando
     //va llenando el estado que planteamos arriba
@@ -93,7 +93,7 @@ export default function PostDog() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(input)
+       // console.log(input)
          dispatch(postDog(input))
             alert("Done!")
             setInput({
