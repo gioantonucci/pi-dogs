@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&display=swap');
 
 .conteiner {
   height: 100vh;
@@ -27,7 +27,7 @@
 }
 
 .title {
-  font: bold 7.5vw/1.6 'Lobster', sans-serif;
+  font: bold 7.5vw/1.6 'Acme', sans-serif;
   color: white;
   font-size: 80px;
   letter-spacing: 5px;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&display=swap');
 
 
 .contiener {
@@ -12,7 +12,7 @@
 }
 
 .title {
-  font: bold 7.5vw/1.6 "Lobster", sans-serif;
+  font: bold 7.5vw/1.6 "Acme", sans-serif;
   color: white;
   font-size: 40px;
   letter-spacing: 5px;
@@ -20,13 +20,14 @@
 }
 
 .text {
-  font:  7.5vw/1.6 "Lobster", sans-serif;
+  font:  7.5vw/1.6 "Acme", sans-serif;
   color: teal;
   font-size: 20px;
+  padding: 2%;
 }
 
 .card {
-  background-color: gainsboro;;
+  background-color: gainsboro;
   width: 60%;
   margin: auto;
   border-radius: 15px;
@@ -52,6 +53,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 2%;
 }
 
 .btn:hover {
@@ -61,7 +63,7 @@
 }
 
 .loading {
-  font: bold 7.5vw/1.6 "Lobster", sans-serif;
+  font: bold 7.5vw/1.6 "Acme", sans-serif;
   color: white;
   font-size: 50px;
   letter-spacing: 5px;

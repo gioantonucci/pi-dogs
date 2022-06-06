@@ -6,7 +6,7 @@
   justify-content: space-around;
   align-items: center;
   justify-items: center;
-
+  
 }
 
 .btn {
@@ -18,7 +18,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  
+  font: 1vw 'Acme', sans-serif;
 }
 
 .btn:hover {

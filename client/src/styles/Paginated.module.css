@@ -8,17 +8,17 @@
     justify-content: center;
 }
 .number {
-    background-color: bisque;
-    color: black;
+    background-color: burlywood;
+    color: rgb(255, 255, 255);
     list-style: none;
     display: flex;
     font-size: 15px;
-    font-style: italic;
     margin: auto;
     padding: 5px;
     width: 30px;
     height: 30px;
     border-radius: 10px;
+    font: 1vw/1.6 'Acme', sans-serif;
   }
 
   .number:hover{
@@ -39,7 +39,7 @@
 
   .img::before {
     content: "";
-      background: burlywood;
+      background: rgb(156, 130, 96);
      background-size: 30px 30px;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;

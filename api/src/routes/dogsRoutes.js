@@ -68,7 +68,7 @@ const getDBinfo = async () => {
     const info = perros.map((e) => {
       let temp = e.temperaments.map(e=> e.name)
       let aux = temp.join(', ')
-     // console.log("ACA ESTOY", e.temperament)
+      console.log("ACA ESTOY", e.temperament)
       return {
         name: e.name,
         id: e.id,
@@ -148,8 +148,8 @@ router.get('/dogs/:id', async (req, res, next) =>{
         const dogsTotal = await getAllDogs();
         console.log(dogsTotal)
         let dogId = dogsTotal.filter(el => el.id == id);
-        // console.log("id",  dogId)
-        // console.log("db",  dogBd)
+        console.log("id",  dogId)
+       console.log("db",  dogBd)
         if(dogId) {
           res.send(dogId)
         } else {
@@ -157,15 +157,7 @@ router.get('/dogs/:id', async (req, res, next) =>{
         }
         
       }
-    }
-  //   } else {
-  //     const id = req.params.id;
-  //     const dogsTotal = await getAllDogs();
-  //     let dogId = await dogsTotal.filter(el => el.id == id);
-  //     dogId.length? res.status(200).json(dogId) :
-  //     res.status(404).send("Ese perrito no está!");
-  //  }
-    
+    }    
    catch (error) {
     next(error)
   }
