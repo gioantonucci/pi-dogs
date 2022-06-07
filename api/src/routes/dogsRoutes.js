@@ -15,7 +15,7 @@ const router = Router();
 //traer la informacion desde la api
 const getApiInfo = async () => {
   try {
-    const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+    const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=232bd982-32a3-43b7-a1e4-bbcb2bdf72bc`);
     const apiInfo = await apiUrl.data.map((e) => {
       return {
         name: e.name,

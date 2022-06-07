@@ -14,7 +14,7 @@ const router = Router();
 
 router.get("/temperaments", async function (req, res) {    
     try {
-    const dataApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+    const dataApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=232bd982-32a3-43b7-a1e4-bbcb2bdf72bc`);
     let temperaments = dataApi.data.map((el) => el.temperament);
     temperaments = temperaments.join(", ").split(", ");
     temperaments = temperaments.filter((el) => el);
