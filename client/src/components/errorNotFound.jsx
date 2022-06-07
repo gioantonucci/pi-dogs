@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import doggie from "../img/error.png"
-import s from '../styles/error404.module.css'
+import s from '../styles/errorNotFound.module.css'
 
 
 
-export default function Error404(){
+export default function Err(){
  return (
 
      <div className={s.container}>

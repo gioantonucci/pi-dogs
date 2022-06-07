@@ -17,11 +17,11 @@ export default function NavBar() {
             alt="img not found"
           />
         </Link>
-
+        <div className={s.btnDiv}>
         <Link to="/dog">
           <button className={s.btn}>Create dog!</button>
         </Link>
-
+        </div>
         <SearchBar />
       </nav>
     </header>

@@ -9,6 +9,12 @@
   
 }
 
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn {
   width: 100%;
   background-color: burlywood;
@@ -20,6 +26,7 @@
   cursor: pointer;
   font: 1vw 'Acme', sans-serif;
 }
+
 
 .btn:hover {
   background-color: rgb(156, 130, 96);

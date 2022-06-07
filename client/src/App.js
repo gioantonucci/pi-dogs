@@ -1,32 +1,26 @@
 import "./App.css";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./components/landingPage";
 import Home from "./components/home";
 import PostDog from "./components/postDog";
 import DogDetail from "./components/dogDetail";
-import Error404 from "./components/error404";
+import Err from "./components/errorNotFound";
 
 function App() {
   return (
-    <>
-      <div className="App">
-        <Route path="/home/:id">
-          <DogDetail />
-        </Route>
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route path="/dog">
-          <PostDog />
-        </Route>
-        <Route path ="*">
-          <Error404 />
-        </Route>
-      </div>
-    </>
+    <BrowserRouter>
+    <div className="App">
+    <Switch>
+    <Route exact path='/' component = {LandingPage}/>
+    <Route exact path='/home' component = {Home}/>
+    <Route exact path='/dog' component = {PostDog}/>
+    <Route exact path= '/home/:id' component = {DogDetail}/>
+    <Route path= '*' component = {Err}/>
+    </Switch>
+    </div>
+    </BrowserRouter>
+ 
+   
   );
 }
 
