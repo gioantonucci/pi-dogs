@@ -15,46 +15,24 @@ const router = Router();
 //traer la informacion desde la api
 const getApiInfo = async () => {
   try {
-    const apiUrl = await axios.get(
-      `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
-    );
+    const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
     const apiInfo = await apiUrl.data.map((e) => {
       return {
         name: e.name,
         id: e.id,
-
-        height_max:
-          e.height.metric.split(" - ")[1] && e.height.metric.split(" - ")[1],
-        height_min:
-          e.height.metric.split(" - ")[0] && e.height.metric.split(" - ")[0],
-
-        weight_max:
-          e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
-        weight_min:
-          e.weight.metric.split(" - ")[0] !== "NaN"
-            ? e.weight.metric.split(" - ")[0]
-            : 6,
-
-        life_time_max:
-          e.life_span.split(" - ")[1] &&
-          e.life_span.split(" - ")[1].split(" ")[0],
-        life_time_min:
-          e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
-       
-       
-       
-          temperament: e.temperament
-          ? e.temperament
-          : "Unknown",
-       
-       
-       
-          image: e.image.url,
-      };
-    });
+        height_min: e.height.metric.split(" - ")[0] && e.height.metric.split(" - ")[0],
+        height_max: e.height.metric.split(" - ")[1] && e.height.metric.split(" - ")[1],
+        weight_min: e.weight.metric.split(" - ")[0] !== "NaN" ? e.weight.metric.split(" - ")[0] : 6,
+        weight_max: e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
+        life_time_min: e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
+        life_time_max: e.life_span.split(" - ")[1] && e.life_span.split(" - ")[1].split(" ")[0],
+        temperament: e.temperament ? e.temperament : "Unknown",
+        image: e.image.url,
+    };
+  });
     return apiInfo;
-  } catch (error) {
-    console.log("Hubo un error en el getApiInfo", error);
+} catch (error) {
+    console.log("ERROR IN getApiInfo", error);
   }
 };
 
@@ -68,7 +46,7 @@ const getDBinfo = async () => {
     const info = perros.map((e) => {
       let temp = e.temperaments.map(e=> e.name)
       let aux = temp.join(', ')
-      console.log("ACA ESTOY", e.temperament)
+     // console.log("ACA ESTOY", e.temperament)
       return {
         name: e.name,
         id: e.id,
@@ -89,7 +67,7 @@ const getDBinfo = async () => {
     //console.log(info)
     return info;
   } catch (error) {
-    console.log("Hubo un error en getDBInfo", error);
+    console.log("ERROR IN getDBInfo", error);
   }
 };
 
@@ -101,7 +79,7 @@ const getAllDogs = async () => {
     const infoTotal = apiInfo.concat(dbInfo);
     return infoTotal;
   } catch (error) {
-    console.log("Hubo un error en infoTotal", error);
+    console.log("ERROR IN infoTotal", error);
   }
 };
 
@@ -121,7 +99,7 @@ router.get("/dogs", async (req, res) => {
     );
     dogName.length
       ? res.status(200).send(dogName)
-      : res.status(400).send("Raza inexistente");
+      : res.status(400).send("MISSING BREED");
   } else {
     res.status(200).send(dogsTotal);
   }
@@ -148,12 +126,12 @@ router.get('/dogs/:id', async (req, res, next) =>{
         const dogsTotal = await getAllDogs();
         console.log(dogsTotal)
         let dogId = dogsTotal.filter(el => el.id == id);
-        console.log("id",  dogId)
-       console.log("db",  dogBd)
+        // console.log("id",  dogId)
+        // console.log("db",  dogBd)
         if(dogId) {
           res.send(dogId)
         } else {
-          res.send("No se encontro el perrito!")
+          res.send("Doggie not found!")
         }
         
       }
@@ -204,5 +182,6 @@ router.post('/dog', async (req, res, next)=> {
     next(error);
   }
 });
+
 
 module.exports = router;

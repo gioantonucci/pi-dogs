@@ -1,0 +1,57 @@
+.container {
+  background-image: url("https://img.freepik.com/vector-gratis/patron-costuras-huellas-perros-colores_429461-332.jpg?w=740");
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+ .text {
+  font: bold 7.5vw/1.6 'Acme', sans-serif;
+  color: white;
+  font-size: 50px;
+  letter-spacing: 5px;
+  text-shadow: -1px -1px 0px #f4511e, 3px 3px 0px gainsboro, 6px 6px 0px teal;
+ }
+
+ .text1 {
+  font: bold 2vw/1.6 'Acme', sans-serif;
+  color: white;
+  font-size: 40px;
+  letter-spacing: 5px;
+  text-shadow: -1px -1px 0px #f4511e, 3px 3px 0px gainsboro, 6px 6px 0px teal;
+ }
+
+.btn {
+  width: 120%;
+  background-color: burlywood;
+  color: white;
+  font: 1vw "Acme", sans-serif;
+  padding: 20px 20px;
+  margin: 8px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: rgb(156, 130, 96);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.img {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

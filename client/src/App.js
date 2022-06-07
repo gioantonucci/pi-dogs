@@ -4,6 +4,7 @@ import LandingPage from "./components/landingPage";
 import Home from "./components/home";
 import PostDog from "./components/postDog";
 import DogDetail from "./components/dogDetail";
+import Error404 from "./components/error404";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path="/dog">
           <PostDog />
+        </Route>
+        <Route path ="*">
+          <Error404 />
         </Route>
       </div>
     </>
