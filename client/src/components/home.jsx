@@ -157,22 +157,4 @@ export default function Home() {
     
     </div>
   );
-  /*
-Ruta principal: debe contener
-- [x] Input de búsqueda para encontrar razas de perros por nombre
-- [x] Área donde se verá el listado de razas de perros.
- Deberá mostrar su:
-  - Imagen
-  - Nombre
-  - Temperamento
-  - Peso
-- [*] Botones/Opciones para filtrar por:
-    - Temperamento 
-    - Raza existente (es decir las que vienen de la API) o agregada por nosotros (creadas mediante el form)
-- [*] Botones/Opciones para ordenar tanto
- ascendentemente como descendentemente las razas de perro por:
-    - Orden alfabético 
-    - Peso
-- [*] Paginado para ir buscando y mostrando las siguientes razas, mostrando 8 razas por página.
-*/
 }

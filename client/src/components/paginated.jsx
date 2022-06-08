@@ -1,5 +1,4 @@
 import React from 'react';
-import currentPage from './home'
 import s from '../styles/Paginated.module.css';
 
 

@@ -15,23 +15,32 @@ const router = Router();
 //traer la informacion desde la api
 const getApiInfo = async () => {
   try {
-    const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=232bd982-32a3-43b7-a1e4-bbcb2bdf72bc`);
+    const apiUrl = await axios.get(
+      `https://api.thedogapi.com/v1/breeds?api_key=232bd982-32a3-43b7-a1e4-bbcb2bdf72bc`
+    );
     const apiInfo = await apiUrl.data.map((e) => {
       return {
         name: e.name,
         id: e.id,
-        height_min: e.height.metric.split(" - ")[0] && e.height.metric.split(" - ")[0],
-        height_max: e.height.metric.split(" - ")[1] && e.height.metric.split(" - ")[1],
-        weight_min: e.weight.metric.split(" - ")[0] !== "NaN" ? e.weight.metric.split(" - ")[0] : 6,
-        weight_max: e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
-        life_time_min: e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
-        life_time_max: e.life_span.split(" - ")[1] && e.life_span.split(" - ")[1].split(" ")[0],
+        height_min:
+          e.height.metric.split(" - ")[0] && e.height.metric.split(" - ")[0],
+        height_max:
+          e.height.metric.split(" - ")[1] && e.height.metric.split(" - ")[1],
+        weight_min:
+          e.weight.metric.split(" - ")[0] !== "NaN"? e.weight.metric.split(" - ")[0]: 6,
+        weight_max:
+          e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
+        life_time_min:
+          e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
+        life_time_max:
+          e.life_span.split(" - ")[1] &&
+          e.life_span.split(" - ")[1].split(" ")[0],
         temperament: e.temperament ? e.temperament : "Unknown",
         image: e.image.url,
-    };
-  });
+      };
+    });
     return apiInfo;
-} catch (error) {
+  } catch (error) {
     console.log("ERROR IN getApiInfo", error);
   }
 };
@@ -40,13 +49,13 @@ const getApiInfo = async () => {
 const getDBinfo = async () => {
   try {
     const perros = await Dog.findAll({
-      include: Temperament
+      include: Temperament,
     });
-    
+
     const info = perros.map((e) => {
-      let temp = e.temperaments.map(e=> e.name)
-      let aux = temp.join(', ')
-     // console.log("ACA ESTOY", e.temperament)
+      let temp = e.temperaments.map((e) => e.name);
+      let aux = temp.join(", ");
+      // console.log("ACA ESTOY", e.temperament)
       return {
         name: e.name,
         id: e.id,
@@ -59,9 +68,11 @@ const getDBinfo = async () => {
 
         life_time_max: e.life_time_max,
         life_time_min: e.life_time_min,
-        
+
         temperament: aux,
-        image: e.image? e.image : "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg",
+        image: e.image
+          ? e.image
+          : "https://pm1.narvii.com/6893/724dede9a107e0d420269799b4efe8be26a88df9r1-842-1024v2_00.jpg",
       };
     });
     //console.log(info)
@@ -110,49 +121,40 @@ router.get("/dogs", async (req, res) => {
 // // - Debe traer solo los datos pedidos en la ruta de detalle de raza de perro
 // // - Incluir los temperamentos asociados
 
-router.get('/dogs/:id', async (req, res, next) =>{
+router.get("/dogs/:id", async (req, res, next) => {
   try {
     // if (typeof id === 'string' && id.length > 6) {
-      let dogBd = [];
-      const id = req.params.id;
-      if (typeof id === 'string' && id.length > 6){
-       dogBd = await Dog.findAll({where:{id:id},
-       include: Temperament})
-   
-      }
-      if (dogBd.length) {
-        res.send(dogBd)
+    let dogBd = [];
+    const id = req.params.id;
+    if (typeof id === "string" && id.length > 6) {
+      dogBd = await Dog.findAll({ where: { id: id }, include: Temperament });
+    }
+    if (dogBd.length) {
+      res.send(dogBd);
+    } else {
+      const dogsTotal = await getAllDogs();
+      console.log(dogsTotal);
+      let dogId = dogsTotal.filter((el) => el.id == id);
+      // console.log("id",  dogId)
+      // console.log("db",  dogBd)
+      if (dogId) {
+        res.send(dogId);
       } else {
-        const dogsTotal = await getAllDogs();
-        console.log(dogsTotal)
-        let dogId = dogsTotal.filter(el => el.id == id);
-        // console.log("id",  dogId)
-        // console.log("db",  dogBd)
-        if(dogId) {
-          res.send(dogId)
-        } else {
-          res.send("Doggie not found!")
-        }
-        
+        res.send("Doggie not found!");
       }
-    }    
-   catch (error) {
-    next(error)
+    }
+  } catch (error) {
+    next(error);
   }
-})
+});
 
 ////----------------------------------POST-------------------------------
-
-
-
 
 // // - [X] __POST /dog__:
 // // - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
 // // - Crea una raza de perro en la base de datos
 
-
-
-router.post('/dog', async (req, res, next)=> {
+router.post("/dog", async (req, res, next) => {
   try {
     let {
       name,
@@ -163,7 +165,7 @@ router.post('/dog', async (req, res, next)=> {
       life_time_min,
       life_time_max,
       image,
-      temperament
+      temperament,
     } = req.body;
 
     const newDog = await Dog.create({
@@ -174,14 +176,13 @@ router.post('/dog', async (req, res, next)=> {
       weight_max,
       life_time_min,
       life_time_max,
-      image
-    })
-    newDog.addTemperament(temperament)
+      image,
+    });
+    newDog.addTemperament(temperament);
     res.status(201).json(newDog);
   } catch (error) {
     next(error);
   }
 });
-
 
 module.exports = router;
