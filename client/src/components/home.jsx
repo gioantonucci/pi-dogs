@@ -42,34 +42,34 @@ export default function Home() {
     e.preventDefault();
     dispatch(getDogs());
   }
+
   //-ORDENAMIENTOS----------------------------------------
   function handleSort(e) {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordenado ${e.target.value}`);
   }
+
   //-Por peso--------------------------------------------
   function handleSortWeight(e) {
     e.preventDefault();
     dispatch(orderByWeight(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordenado ${e.target.value}`);
   }
+
   //-FILTRADOS-------------------------------------------
   //-Por creacion----------------------------------------
   function handleFilterCreated(e) {
     e.preventDefault(e);
     dispatch(filterCreated(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordenado ${e.target.value}`);
   }
+
   //-Por temperamento------------------------------------
   function handleFilterByTemperament(e) {
     e.preventDefault(e);
     dispatch(filterTemperament(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordenado ${e.target.value}`);
   }
 
   return (
@@ -126,6 +126,7 @@ export default function Home() {
                 <Paginated
                     dogsPerPage={dogsPerPage}
                     allDogs={allDogs.length}
+                    currentPage={currentPage}
                     paginado={paginado}
                 />
     <div className={s.card}>
