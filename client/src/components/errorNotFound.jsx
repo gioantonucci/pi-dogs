@@ -9,7 +9,7 @@ export default function Err(){
  return (
 
      <div className={s.container}>
-         <div className={s.SACALEELPADDING}>
+         <div>
          <h1 className={s.text}>Error 404 Not found!</h1>
          <h2 className={s.text1}> There are no puppies here 👀</h2>
          </div>
@@ -18,8 +18,7 @@ export default function Err(){
         <button className={s.btn}> Back to home</button>
         </Link>
         </div>
-         <img className={s.img} src={doggie} />
-        
+         <img className={s.img} src={doggie} alt="img not found!" />
      </div>
  )
 }

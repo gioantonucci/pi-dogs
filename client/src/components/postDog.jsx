@@ -148,7 +148,7 @@ export default function PostDog() {
 
   useEffect(() => {
     dispatch(getTemperaments());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={s.conteiner}>
