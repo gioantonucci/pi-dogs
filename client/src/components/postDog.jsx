@@ -106,7 +106,7 @@ export default function PostDog() {
     } else if (input.temperament.length < 3) {
       setInput({
         ...input,
-        temperament: [...input.temperament, e.target.value],
+        temperament: [...input.temperament, e.target.value? e.target.value : [...input.temperament]],
       });
     }
   }
