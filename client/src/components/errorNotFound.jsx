@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import doggie from "../img/error.png"
+import error from "../img/error.png"
 import s from '../styles/errorNotFound.module.css'
 
 
@@ -18,7 +18,7 @@ export default function Err(){
         <button className={s.btn}> Back to home</button>
         </Link>
         </div>
-         <img className={s.img} src={doggie} alt="img not found!" />
+         <img className={s.img} src={error} alt="img not found!" />
      </div>
  )
 }
