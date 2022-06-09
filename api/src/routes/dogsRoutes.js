@@ -21,24 +21,33 @@ const getApiInfo = async () => {
     const apiInfo = await apiUrl.data.map((e) => {
       return {
         name: e.name,
+        
         id: e.id,
+
         height_min:
           e.height.metric.split(" - ")[0] && e.height.metric.split(" - ")[0],
-        height_max:
+        
+          height_max:
           e.height.metric.split(" - ")[1] && e.height.metric.split(" - ")[1],
+
         weight_min:
           e.weight.metric.split(" - ")[0] !== "NaN"
             ? e.weight.metric.split(" - ")[0]
             : 6,
-        weight_max:
+       
+            weight_max:
           e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
-        life_time_min:
+        
+          life_time_min:
           e.life_span.split(" - ")[0] && e.life_span.split(" - ")[0],
-        life_time_max:
+        
+          life_time_max:
           e.life_span.split(" - ")[1] &&
           e.life_span.split(" - ")[1].split(" ")[0],
-        temperament: e.temperament ? e.temperament : "Unknown",
-        image: e.image.url,
+        
+          temperament: e.temperament ? e.temperament : "Unknown",
+        
+          image: e.image.url,
       };
     });
     return apiInfo;
@@ -125,7 +134,6 @@ router.get("/dogs", async (req, res) => {
 
 router.get("/dogs/:id", async (req, res, next) => {
   try {
-   
     let dogBd = [];
     const id = req.params.id;
     if (typeof id === "string" && id.length > 6) {
