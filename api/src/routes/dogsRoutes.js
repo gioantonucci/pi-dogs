@@ -125,7 +125,7 @@ router.get("/dogs", async (req, res) => {
 
 router.get("/dogs/:id", async (req, res, next) => {
   try {
-    // if (typeof id === 'string' && id.length > 6) {
+   
     let dogBd = [];
     const id = req.params.id;
     if (typeof id === "string" && id.length > 6) {
@@ -135,7 +135,7 @@ router.get("/dogs/:id", async (req, res, next) => {
       res.send(dogBd);
     } else {
       const dogsTotal = await getAllDogs();
-      console.log(dogsTotal);
+      //console.log(dogsTotal);
       let dogId = dogsTotal.filter((el) => el.id == id);
       // console.log("id",  dogId)
       // console.log("db",  dogBd)

@@ -19,9 +19,10 @@ export default function Home() {
   const dispatch = useDispatch();
   const [order, setOrder] = useState("");
 
-  //-PAGINADO----------------------------------------
+ 
   const allDogs = useSelector((state) => state.dogs);
   const allTemperaments = useSelector((state) => state.temperaments);
+  //-PAGINADO----------------------------------------
   const [currentPage, setCurrentPage] = useState(1);
   const [dogsPerPage, setDogsPerPage] = useState(8);
   const indexOfLastDog = currentPage * dogsPerPage;
@@ -41,6 +42,8 @@ export default function Home() {
   function handleClick(e) {
     e.preventDefault();
     dispatch(getDogs());
+    setCurrentPage(1);
+    setOrder(e.target.value)
   }
 
   //-ORDENAMIENTOS----------------------------------------

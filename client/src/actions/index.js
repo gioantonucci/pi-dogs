@@ -52,8 +52,8 @@ export function searchDogs(search) {
         })
     }))
     
-    .catch((error) => {
-        console.log(error)
+    .catch(() => {
+        alert("Doggie not found!")
     })
     }
 }
