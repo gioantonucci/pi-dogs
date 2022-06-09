@@ -27,7 +27,9 @@ const getApiInfo = async () => {
         height_max:
           e.height.metric.split(" - ")[1] && e.height.metric.split(" - ")[1],
         weight_min:
-          e.weight.metric.split(" - ")[0] !== "NaN"? e.weight.metric.split(" - ")[0]: 6,
+          e.weight.metric.split(" - ")[0] !== "NaN"
+            ? e.weight.metric.split(" - ")[0]
+            : 6,
         weight_max:
           e.weight.metric.split(" - ")[1] && e.weight.metric.split(" - ")[1],
         life_time_min:

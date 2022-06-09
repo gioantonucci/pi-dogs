@@ -48,6 +48,7 @@ export default function Home() {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
     setCurrentPage(1);
+    setOrder(e.target.value)
   }
 
   //-Por peso--------------------------------------------
@@ -55,6 +56,7 @@ export default function Home() {
     e.preventDefault();
     dispatch(orderByWeight(e.target.value));
     setCurrentPage(1);
+    setOrder(e.target.value)
   }
 
   //-FILTRADOS-------------------------------------------
@@ -63,6 +65,7 @@ export default function Home() {
     e.preventDefault(e);
     dispatch(filterCreated(e.target.value));
     setCurrentPage(1);
+    setOrder(e.target.value)
   }
 
   //-Por temperamento------------------------------------
@@ -70,6 +73,7 @@ export default function Home() {
     e.preventDefault(e);
     dispatch(filterTemperament(e.target.value));
     setCurrentPage(1);
+    setOrder(e.target.value)
   }
 
   return (
