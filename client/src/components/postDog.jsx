@@ -52,6 +52,12 @@ function validate(input) {
     errors.life_time_max = "✅Done!";
   }
 
+  if (!input.temperament) {
+    errors.temperaments = "❌ At least one temperament is required!";
+  } else {
+    errors.temperaments = "✅Done!";
+  }
+
   return errors;
 }
 
@@ -120,11 +126,11 @@ export default function PostDog() {
       
       input.name !== "" &&
       input.height_min !== "" &&
-      input.height_max !== "" &&
+      input.height_max > input.height_min &&
       input.weight_min !== "" &&
-      input.weight_max !== "" &&
+      input.weight_max > input.weight_min &&
       input.life_time_min !== "" &&
-      input.life_time_max !== "" &&
+      input.weight_max > input.weight_min &&
       input.temperament.length !== 0
     ){
       dispatch(postDog(input));
