@@ -164,7 +164,7 @@ router.get("/dogs/:id", async (req, res, next) => {
 // // - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de raza de perro por body
 // // - Crea una raza de perro en la base de datos
 
-router.post("/dog", async (req, res, next) => {
+router.post("/post", async (req, res, next) => {
   try {
     let {
       name,
@@ -195,9 +195,39 @@ router.post("/dog", async (req, res, next) => {
   }
 });
 
+//-----EDIT------------------------------------
+router.put("/edit/:id", async (req, res) => {
+  const { id } = req.params;
+  const {
+    name,
+    height_min,
+    height_max,
+    weight_min,
+    weight_max,
+    life_span_min,
+    life_span_max,
+    image,
+    temperament,
+  } = req.body;
+  const editDog = await Dog.update(
+    {
+      name,
+      height_min,
+      height_max,
+      weight_min,
+      weight_max,
+      life_span_min,
+      life_span_max,
+      image,
+      temperament,
+    },
+    { where: { id } }
+  );
+  res.send(editDog);
+});
 
-
-router.delete('/:id', async (req, res, next) => {
+//-----------DELETE----------------------------------------
+router.delete('/delete/:id', async (req, res, next) => {
   const {id} = req.params;
   try {
     await Dog.destroy ({
@@ -208,5 +238,6 @@ router.delete('/:id', async (req, res, next) => {
       res.send("error")
   }
 })
+
 
 module.exports = router;

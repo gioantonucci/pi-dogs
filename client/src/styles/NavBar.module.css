@@ -1,6 +1,7 @@
 .navbar {
-  background-color: antiquewhite;
-  height: 5%;
+  background-color: gainsboro;
+  height: 100%;
+  width: 100%;
   display: flex;
   align-content: center;
   justify-content: space-around;
@@ -9,38 +10,18 @@
   
 }
 
-.btnDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.text {
+  font: 1vw/1.6 'Acme', sans-serif;
+  color: teal;
 }
-
-.btn {
-  width: 100%;
-  background-color: burlywood;
-  color: white;
-  padding: 10px 40px;
-  margin: auto;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font: 1vw 'Acme', sans-serif;
-}
-
-
-.btn:hover {
-  background-color: rgb(156, 130, 96);
+.text:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
 
 
-.imgHome {
-  padding-left: 100px;
-}
-
-.imgHome:hover {
+.img:hover {
   transform: scale(1.1);
   cursor: pointer;
 }

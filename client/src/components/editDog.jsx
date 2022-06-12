@@ -61,7 +61,7 @@ return errors
 
 //-------------------------------------------------------------------------------
 
-export default function PostDog() {
+export default function EditDog() {
   const dispatch = useDispatch();
   const history = useHistory();
   const temperaments = useSelector((state) => state.temperaments);

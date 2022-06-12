@@ -1,18 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Lobster&display=swap');
-
+body {
+  background-image: url("https://img.freepik.com/vector-gratis/patron-costuras-huellas-perros-colores_429461-332.jpg?w=740");
+}
 
 .contiener {
-  background-image: url("https://img.freepik.com/vector-gratis/patron-costuras-huellas-perros-colores_429461-332.jpg?w=740");
   height: 100vh;
   width: 100%;
   overflow: auto;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  margin: auto;
+  padding: auto;
 }
 
 .title {
   font: bold 7.5vw/1.6 "Acme", sans-serif;
+  margin: 0;
+  padding: auto;
   color: white;
   font-size: 40px;
   letter-spacing: 5px;
@@ -20,6 +25,8 @@
 }
 
 .text {
+  margin: auto;
+  padding: auto;
   font:  7.5vw/1.6 "Acme", sans-serif;
   color: teal;
   font-size: 20px;
@@ -29,6 +36,7 @@
 .card {
   background-color: gainsboro;
   width: 60%;
+  height: 90%;
   margin: auto;
   border-radius: 15px;
 }
@@ -39,10 +47,6 @@
   border-radius: 15px;
 }
 
-.text {
-  display: flex;
-  flex-direction: column;
-}
 
 .btn {
   width: 20%;
@@ -69,4 +73,32 @@
   font-size: 50px;
   letter-spacing: 5px;
   text-shadow: -1px -1px 0px #f4511e, 3px 3px 0px gainsboro, 6px 6px 0px teal;
+}
+
+.edit {
+ display: flex;
+ align-items: center;
+ flex-direction: row-reverse;
+ justify-content: stretch;
+ margin: 4%;
+ padding: auto;
+}
+
+.bn {
+  width: 90%;
+  background-color: burlywood;
+  color: white;
+  padding: 10px 10px;
+  margin: 5%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 2%;
+  font: 1vw "Acme", sans-serif;
+}
+
+.bn:hover {
+  background-color: rgb(156, 130, 96);
+  transform: scale(1.1);
+  cursor: pointer;
 }

@@ -60,7 +60,7 @@ export function searchDogs(search) {
 
 export function postDog (payload) {
     return async function(dispatch) {
-        const response = await axios.post("/dog", payload);
+        const response = await axios.post("/post", payload);
         //console.log("soy", response.temperament[1])
         return response;
     }

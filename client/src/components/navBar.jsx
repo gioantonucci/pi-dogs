@@ -1,41 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import s from "../styles/NavBar.module.css";
 import SearchBar from "./searchBar";
-import about from "../img/about.png";
 import home from "../img/home.png";
 
 export default function NavBar() {
   return (
     <header>
-      <nav className={s.navbar}>
-        <Link exact to="/home">
-          <img
-            className={s.imgHome}
-            id="home"
+      <div className={s.navbar}>
+        <NavLink to="/">
+          <img className={s.img}
             src={home}
+            id="landingpage"
             width="50"
             height="50"
             alt="img not found"
           />
-        </Link>
-        <Link exact to="/about">
-          <img
-            className={s.imgHome}
-            id="about"
-            src={about}
-            width="50"
-            height="50"
-            alt="img not found"
-          />
-        </Link>
-        <div className={s.btnDiv}>
-          <Link to="/dog">
-            <button className={s.btn}>Create dog!</button>
-          </Link>
-        </div>
-        <SearchBar />
-      </nav>
+        </NavLink>
+        <NavLink to="/home">
+          <p className={s.text}>Home</p>
+        </NavLink>
+        <NavLink to="/post">
+          <p className={s.text}>Create your dog</p>
+        </NavLink>
+
+        <NavLink to="/about">
+          <p className={s.text}>About</p>
+        </NavLink>
+
+        <SearchBar></SearchBar>
+      </div>
     </header>
   );
 }
