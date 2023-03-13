@@ -9,14 +9,7 @@ import axios from 'axios';
 import dotenv from "dotenv";
 
 dotenv.config();
-<<<<<<< Updated upstream
-//axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = 'https://pi-dogs-production-5899.up.railway.app/'
-=======
-//axios.defaults.baseURL ='http://localhost:3001'
-axios.defaults.baseURL = 'https://pi-dogs-production-5899.up.railway.app/';
->>>>>>> Stashed changes
-
+axios.defaults.baseURL = 'https://pi-dogs-production-b528.up.railway.app/';
 ReactDOM.render(
   <Provider store={store}>
   <React.StrictMode>
