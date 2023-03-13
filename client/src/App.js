@@ -8,6 +8,10 @@ import Err from "./components/errorNotFound";
 import About from "./components/about";
 import EditDog from "./components/editDog";
 
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://pi-dogs-production-b528.up.railway.app';
+
 function App() {
   return (
     <BrowserRouter>
