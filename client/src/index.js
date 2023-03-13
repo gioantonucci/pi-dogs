@@ -6,8 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import {store} from "./store";
 import axios from 'axios';
-import dotenv from "dotenv";
-dotenv.config();
+require('dotenv').config();
 
 //axios.defaults.baseURL = 'https://pi-dogs-production-b528.up.railway.app';
 axios.defaults.baseURL = 'https://localhost:3001/'
